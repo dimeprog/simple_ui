@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:simple_ui/screens/login_screen.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -79,16 +80,24 @@ class _SplashPageState extends State<SplashPage> {
                           ),
                         ),
                       ),
-                      Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                              color: Colors.blue[800],
-                              borderRadius: BorderRadius.circular(8)),
-                          child: const Icon(
-                            Icons.arrow_forward_rounded,
-                            size: 32,
-                          ))
+                      InkWell(
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (context) => const LoginScreen()),
+                          );
+                        },
+                        child: Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                                color: Colors.blue[800],
+                                borderRadius: BorderRadius.circular(8)),
+                            child: const Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 32,
+                            )),
+                      )
                     ],
                   ),
                 ),
