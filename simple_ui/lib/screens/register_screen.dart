@@ -1,33 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:simple_ui/screens/register_screen.dart';
-import 'package:simple_ui/widgets/app_color.dart';
-import 'package:simple_ui/widgets/textEditing_widget.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:simple_ui/screens/login_screen.dart';
+import 'package:simple_ui/widgets/auth_nav_widget.dart';
 
-import '../widgets/auth_nav_widget.dart';
+import '../widgets/textEditing_widget.dart';
 
-class LoginScreen extends ConsumerStatefulWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends ConsumerStatefulWidget {
+  const RegisterScreen({super.key});
 
   @override
-  ConsumerState<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<ConsumerStatefulWidget> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
-// create controllers
+class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-
-  @override
-  void dispose() {
-    emailController.clear();
-    emailController.dispose();
-    passwordController.clear();
-    passwordController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,12 +34,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       SizedBox(
                         width: 200,
                         height: 200,
-                        child: SvgPicture.asset(
-                            'assets/images/undraw_welcome_re_h3d9.svg'),
+                        child: SvgPicture.asset('assets/images/register.svg'),
                       ),
                       const Center(
                         child: Text(
-                          "Login",
+                          "Register",
                           style: TextStyle(
                             color: Colors.amber,
                             fontWeight: FontWeight.w900,
@@ -87,7 +74,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                               backgroundColor: const Color(0xff0C2D48),
                               elevation: 8),
                           child: const Text(
-                            'Login',
+                            'Register',
                             style: TextStyle(
                               color: Color(0xffffffff),
                               fontWeight: FontWeight.w700,
@@ -102,10 +89,10 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       AuthBottomNavWidget(
                         onPress: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => const RegisterScreen()));
+                              builder: (context) => const LoginScreen()));
                         },
-                        buttonOption: 'Sign up',
-                        titleOption: 'I dont have an account',
+                        buttonOption: 'Sign in',
+                        titleOption: 'I already have an account',
                       )
                     ],
                   ),

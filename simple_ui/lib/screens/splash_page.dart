@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:simple_ui/screens/auth_checker_screen.dart';
 import 'package:simple_ui/screens/login_screen.dart';
 
 class SplashPage extends StatefulWidget {
@@ -84,7 +85,7 @@ class _SplashPageState extends State<SplashPage> {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                                builder: (context) => const LoginScreen()),
+                                builder: (context) => const AuthChecker()),
                           );
                         },
                         child: Container(
