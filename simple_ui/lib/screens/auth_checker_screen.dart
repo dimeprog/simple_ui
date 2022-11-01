@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:simple_ui/providers/auth_provider.dart';
-import 'package:simple_ui/screens/home_page.dart';
 import 'package:simple_ui/screens/login_screen.dart';
 import 'package:simple_ui/screens/register_screen.dart';
 import 'package:simple_ui/widgets/loading__page.dart';
@@ -16,9 +15,9 @@ class AuthChecker extends ConsumerWidget {
       body: authState.when(
         data: (user) {
           if (user != null) {
-            return LoginScreen();
+            return const LoginScreen();
           } else {
-            return RegisterScreen();
+            return const RegisterScreen();
           }
         },
         error: (err, _) {

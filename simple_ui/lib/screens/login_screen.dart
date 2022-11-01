@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:simple_ui/screens/home_page.dart';
 import 'package:simple_ui/screens/register_screen.dart';
+import 'package:simple_ui/view_models/auth_controller.dart';
 import 'package:simple_ui/widgets/app_color.dart';
 import 'package:simple_ui/widgets/textEditing_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -63,14 +65,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         height: 70,
                       ),
                       AppTextEditingWidget(
-                          key: ValueKey(1),
-                          controller: emailController,
-                          hintText: 'Email'),
+                          controller: emailController, hintText: 'Email'),
                       const SizedBox(
                         height: 30,
                       ),
                       AppTextEditingWidget(
-                        key: const ValueKey(2),
                         controller: passwordController,
                         hintText: 'Password',
                         isObsecure: true,
@@ -82,7 +81,18 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         height: 70,
                         width: 200,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (emailController.text.isNotEmpty &&
+                                passwordController.text.isNotEmpty) {
+                              ref
+                                  .read(authControllerProvider.notifier)
+                                  .loginWithEmailAndPassword(
+                                    emailController.text,
+                                    passwordController.text,
+                                    context,
+                                  );
+                            }
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff0C2D48),
                               elevation: 8),

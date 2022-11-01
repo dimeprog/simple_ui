@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:simple_ui/screens/home_page.dart';
 import 'package:simple_ui/screens/login_screen.dart';
+import 'package:simple_ui/view_models/auth_controller.dart';
 import 'package:simple_ui/widgets/auth_nav_widget.dart';
 
 import '../widgets/textEditing_widget.dart';
@@ -16,6 +18,16 @@ class RegisterScreen extends ConsumerStatefulWidget {
 class _RegisterScreenState extends ConsumerState<RegisterScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    emailController.clear();
+    emailController.dispose();
+    passwordController.clear();
+    passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +81,20 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                         height: 70,
                         width: 200,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            if (emailController.text.isNotEmpty &&
+                                passwordController.text.isNotEmpty) {
+                              ref
+                                  .read(authControllerProvider.notifier)
+                                  .signUpWithEmailAndPassword(
+                                    emailController.text,
+                                    passwordController.text,
+                                    context,
+                                  );
+                            }
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => HomePage()));
+                          },
                           style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xff0C2D48),
                               elevation: 8),

@@ -21,34 +21,36 @@ class _SplashPageState extends State<SplashPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Center(
-              child: SizedBox(
-                height: 400,
-                width: 350,
-                child: SvgPicture.asset('assets/images/lode _asset.svg'),
+              child: Center(
+                child: SizedBox(
+                  height: 300,
+                  width: 300,
+                  child: SvgPicture.asset('assets/images/lode _asset.svg'),
+                ),
               ),
             ),
             const Text(
-              "COVID-19",
+              "Splash Food",
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-              child: Center(
-                child: Text(
-                  'The lorem ipsum gets its name from the Latin phrase \nNeque porro quisquam est qui dolorem ipsum quia dolor sit amet.\n which translates to “Nor is there anyone who loves or pursues or desires to obtain pain of itself,\n because it is pain.',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14),
-                ),
-              ),
-            ),
+            // const Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            //   child: Center(
+            //     child: Text(
+            //       'The lorem ipsum gets its name from the Latin phrase \nNeque porro quisquam est qui dolorem ipsum quia dolor sit amet.\n which translates to “Nor is there anyone who loves or pursues or desires to obtain pain of itself,\n because it is pain.',
+            //       style: TextStyle(
+            //           color: Colors.white,
+            //           fontWeight: FontWeight.w500,
+            //           fontSize: 14),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(
-              height: 20,
+              height: 90,
             ),
             SizedBox(
               child: Container(

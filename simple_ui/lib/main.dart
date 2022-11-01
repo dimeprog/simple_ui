@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:simple_ui/screens/splash_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:simple_ui/widgets/app_color.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Simple Ui',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.amber,
+        primarySwatch: Colors.lightBlue,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
       home: const SplashPage(),
